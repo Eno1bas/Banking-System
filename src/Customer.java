@@ -1,19 +1,19 @@
 import java.util.Scanner;
 
 
-public class FrontEnd {
-    private BackEnd backEnd;
+public class Customer {
+    private Server server;
 
-    public FrontEnd(BackEnd backEnd) {
-        this.backEnd = backEnd;
+    public Customer(Server server) {
+        this.server = server;
     }
 
     public void handlePinInput() {
         Scanner scan = new Scanner(System.in);
         for (int attempts = 0; attempts < 3; attempts++) {
             System.out.println("Enter your PIN:");
-            String pin = scan.nextLine();
-            if (backEnd.isPINValid(pin)){
+            int pin = scan.nextInt();
+            if (server.isPINValid(pin)){
               displayAccountBalance();
               return;
             } else {
@@ -23,11 +23,11 @@ public class FrontEnd {
         System.out.println("Please try again in 24 hours");
     }
     public static void main(String[] args) {
-        BackEnd bank = new BackEnd();
-        FrontEnd pinHandler = new FrontEnd(bank);
+        Server bank = new Server();
+        Customer pinHandler = new Customer(bank);
         pinHandler.handlePinInput();
     }
     private void displayAccountBalance() {
-        System.out.println("Account balance: " + backEnd.getBalance());
+        System.out.println("Account balance: " + server.getBalance());
     }
 }

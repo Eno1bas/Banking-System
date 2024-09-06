@@ -5,6 +5,7 @@ public class BankAccount {
     private float balance = 600000;
     private int pinCode = 1234;
 
+
     // Methods
     public float getBalance() {
         return balance;
@@ -13,6 +14,18 @@ public class BankAccount {
     public boolean validatePIN(int enteredPIN) {
         return Objects.equals(this.pinCode, enteredPIN);
     }
+
+    public void receiveFunds(float receivedAmount){
+       balance= balance+receivedAmount;
+    }
+    public void withdrawFunds(float withdrawnAmount){
+       balance = balance-withdrawnAmount;
+    }
+    public void releaseFunds(float merchantAccount){
+        balance = balance-merchantAccount;
+    }
+    public void sendFunds(float recipientAccount)
+    {balance = balance-recipientAccount;}
 }
 
 

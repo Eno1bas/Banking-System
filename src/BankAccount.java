@@ -21,11 +21,11 @@ public class BankAccount {
     public void withdrawFunds(float withdrawnAmount){
        balance = balance-withdrawnAmount;
     }
-    public void releaseFunds(float merchantAccount){
-        balance = balance-merchantAccount;
+    public void releaseFunds(float merchantAmount){
+        balance = balance-merchantAmount;
     }
-    public void sendFunds(float recipientAccount)
-    {balance = balance-recipientAccount;}
+    public void sendFunds(float recipientAmount)
+    {balance = balance-recipientAmount;}
 }
 
 

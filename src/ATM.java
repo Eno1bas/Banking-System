@@ -8,6 +8,19 @@ public class ATM {
     public ATM(BankAccount bankAccount) {
         this.bankAccount = bankAccount;
     }
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount();
+        ATM atm = new ATM(account);
+        atm.handlePINEntry();
+        int selectedOption = atm.chooseOptions();
+        if(atm.chooseOptions()==1){
+            atm.withdraw();
+        }
+        else if (atm.chooseOptions()==2){
+            atm.displayBalance();
+        }
+
+    }
 
     // Methods
     public void handlePINEntry() {
@@ -16,7 +29,7 @@ public class ATM {
             System.out.println("Enter your PIN:");
             int enteredPIN = scanner.nextInt();
             if (bankAccount.validatePIN(enteredPIN)) {
-                displayBalance();
+                System.out.println("Correct Pin");
                 return;
             } else {
                 System.out.println("Invalid PIN. Please try again.");
@@ -29,11 +42,20 @@ public class ATM {
         System.out.println("Account balance: " + bankAccount.getBalance());
     }
 
-    public static void main(String[] args) {
-        BankAccount account = new BankAccount();
-        ATM atm = new ATM(account);
-        atm.handlePINEntry();
+    private int chooseOptions() {
+        System.out.println("Please choose one of the following options");
+        System.out.println("1. Withdraw");
+        System.out.println("2. Check Balance");
+        System.out.println("3. Cancel");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
     }
+
+    private void withdraw(){
+
+    }
+
+
 }
 
 

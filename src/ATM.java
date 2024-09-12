@@ -13,11 +13,14 @@ public class ATM {
         ATM atm = new ATM(account);
         atm.handlePINEntry();
         int selectedOption = atm.chooseOptions();
-        if(atm.chooseOptions()==1){
+        if(selectedOption==1){
             atm.withdraw();
         }
-        else if (atm.chooseOptions()==2){
+        else if (selectedOption==2){
             atm.displayBalance();
+        }
+        else {
+            System.out.println("Transaction Cancelled. Good bye.");
         }
 
     }
@@ -52,8 +55,20 @@ public class ATM {
     }
 
     private void withdraw(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("how much do you wish to withdraw");
+        float withdrawnAmount = scanner.nextFloat();
+        if (withdrawnAmount<=0){
+            System.out.println("Invalid amount; please enter a valid amount");
+            return;
+        } else if (withdrawnAmount> bankAccount.getBalance())
+            System.out.println("Insufficient Funds, cannot withdraw more than your account balance");
+            return;}
+            float newBalance = bankAccount.getBalance()-
 
+        }
     }
+
 
 
 }

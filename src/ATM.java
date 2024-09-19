@@ -1,3 +1,4 @@
+import java.text.BreakIterator;
 import java.util.Scanner;
 
 public class ATM {
@@ -23,6 +24,7 @@ public class ATM {
             System.out.println("Transaction Cancelled. Good bye.");
         }
 
+
     }
 
     // Methods
@@ -39,7 +41,9 @@ public class ATM {
             }
         }
         System.out.println("Account locked. Please try again in 24 hours.");
+
     }
+
 
     private void displayBalance() {
         System.out.println("Account balance: " + bankAccount.getBalance());
@@ -61,17 +65,17 @@ public class ATM {
         if (withdrawnAmount<=0){
             System.out.println("Invalid amount; please enter a valid amount");
             return;
-        } else if (withdrawnAmount> bankAccount.getBalance())
+        } else if (withdrawnAmount> bankAccount.getBalance()){
             System.out.println("Insufficient Funds, cannot withdraw more than your account balance");
-            return;}
-            float newBalance = bankAccount.getBalance()-
-
-        }
+            }
+            else{
+                bankAccount.withdrawFunds(withdrawnAmount);
+                System.out.println("Transaction Successful. Take your card, Funds to follow.");
     }
 
-
-
+        }
 }
+
 
 
 

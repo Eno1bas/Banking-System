@@ -1,4 +1,5 @@
 import java.text.BreakIterator;
+import java.util.PrimitiveIterator;
 import java.util.Scanner;
 
 public class ATM {
@@ -68,13 +69,27 @@ public class ATM {
         } else if (withdrawnAmount> bankAccount.getBalance()){
             System.out.println("Insufficient Funds, cannot withdraw more than your account balance");
             }
-            else{
+            else {//we have provided all information and all checks are passed, we can conclude user journey.
+            ATM_Dispensery atm_dispensery = new ATM_Dispensery();
+            if (atm_dispensery.hasSufficientCash(withdrawnAmount)) {
                 bankAccount.withdrawFunds(withdrawnAmount);
+                atm_dispensery.dispenseCash(withdrawnAmount);
+                System.out.println("Dispensing £" + withdrawnAmount + "...");
                 System.out.println("Transaction Successful. Take your card, Funds to follow.");
+
+            } else {
+                System.out.println("Sorry, the ATM does not have enough cash.");
+            }
+        }
+
     }
 
+
         }
-}
+
+
+
+
 
 
 

@@ -23,7 +23,10 @@ public class ATM {
         }
         else {
             System.out.println("Transaction Cancelled. Good bye.");
+
         }
+        CardReader eject = new CardReader();
+        eject.ejectCard();
 
 
     }
@@ -44,6 +47,7 @@ public class ATM {
             }
         }
         System.out.println("Account locked. Please try again in 24 hours.");
+
 
     }
 
@@ -82,6 +86,7 @@ public class ATM {
                 System.out.println("Sorry, the ATM does not have enough cash.");
             }
         }
+
 
     }
 

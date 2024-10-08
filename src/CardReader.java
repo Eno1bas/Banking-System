@@ -12,4 +12,7 @@ public class CardReader {
             System.out.println("Invalid PIN. Please try again.");
         }
     };
+    public void ejectCard() {
+        System.out.println("Ejecting card... Please take your card.");
+    }
 }

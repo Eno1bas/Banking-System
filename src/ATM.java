@@ -27,14 +27,16 @@ public class ATM {
 
 
     }
-
     // Methods
+    public boolean correctPIN(int enteredPIN) {
+        return bankAccount.validatePIN(enteredPIN);
+    }
     public void handlePINEntry() {
         Scanner scanner = new Scanner(System.in);
         for (int attempt = 0; attempt < 3; attempt++) {
             System.out.println("Enter your PIN:");
             int enteredPIN = scanner.nextInt();
-            if (bankAccount.validatePIN(enteredPIN)) {
+            if ((correctPIN(enteredPIN))) {
                 System.out.println("Correct Pin");
                 return;
             } else {
@@ -44,7 +46,6 @@ public class ATM {
         System.out.println("Account locked. Please try again in 24 hours.");
 
     }
-
 
     private void displayBalance() {
         System.out.println("Account balance: " + bankAccount.getBalance());

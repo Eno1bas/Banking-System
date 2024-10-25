@@ -29,17 +29,17 @@ public class ATM {
         eject.ejectCard();
 
 
+
+
     }
     // Methods
-    public boolean correctPIN(int enteredPIN) {
-        return bankAccount.validatePIN(enteredPIN);
-    }
+
     public void handlePINEntry() {
         Scanner scanner = new Scanner(System.in);
         for (int attempt = 0; attempt < 3; attempt++) {
             System.out.println("Enter your PIN:");
             int enteredPIN = scanner.nextInt();
-            if ((correctPIN(enteredPIN))) {
+            if (bankAccount.validatePIN(enteredPIN)) {
                 System.out.println("Correct Pin");
                 return;
             } else {

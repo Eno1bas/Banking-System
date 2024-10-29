@@ -1,5 +1,3 @@
-import java.text.BreakIterator;
-import java.util.PrimitiveIterator;
 import java.util.Scanner;
 
 public class ATM {
@@ -13,18 +11,18 @@ public class ATM {
     public static void main(String[] args) {
         BankAccount account = new BankAccount();
         ATM atm = new ATM(account);
-        atm.handlePINEntry();
-        int selectedOption = atm.chooseOptions();
-        if(selectedOption==1){
-            atm.withdraw();
-        }
-        else if (selectedOption==2){
-            atm.displayBalance();
-        }
-        else {
-            System.out.println("Transaction Cancelled. Good bye.");
 
-        }
+        if (atm.handlePINEntry()) {
+            int selectedOption = atm.chooseOptions();
+            if (selectedOption == 1) {
+                atm.withdraw();
+            } else if (selectedOption == 2) {
+                atm.displayBalance();
+            } else {
+                System.out.println("Transaction Cancelled. Good bye.");
+            }
+        }else{
+            System.out.println("Account locked. Please try again in 24 hours.");}
         CardReader eject = new CardReader();
         eject.ejectCard();
 
@@ -34,21 +32,20 @@ public class ATM {
     }
     // Methods
 
-    public void handlePINEntry() {
+    public boolean handlePINEntry() {
         Scanner scanner = new Scanner(System.in);
         for (int attempt = 0; attempt < 3; attempt++) {
             System.out.println("Enter your PIN:");
             int enteredPIN = scanner.nextInt();
             if (bankAccount.validatePIN(enteredPIN)) {
                 System.out.println("Correct Pin");
-                return;
+                return true;
             } else {
                 System.out.println("Invalid PIN. Please try again.");
             }
         }
         System.out.println("Account locked. Please try again in 24 hours.");
-
-
+        return false;
     }
 
     private void displayBalance() {

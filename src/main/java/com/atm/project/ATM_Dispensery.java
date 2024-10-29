@@ -1,3 +1,5 @@
+package com.atm.project;
+
 public class ATM_Dispensery {
     private float availableCash = 60000f;
 

@@ -1,3 +1,5 @@
+package com.atm.project;
+
 import java.util.Scanner;
 
 public class ATM {
@@ -12,7 +14,7 @@ public class ATM {
         BankAccount account = new BankAccount();
         ATM atm = new ATM(account);
 
-        if (atm.handlePINEntry()) {
+        if (atm.wasCorrectPINEntered()){
             int selectedOption = atm.chooseOptions();
             if (selectedOption == 1) {
                 atm.withdraw();
@@ -32,12 +34,12 @@ public class ATM {
     }
     // Methods
 
-    public boolean handlePINEntry() {
+    public boolean wasCorrectPINEntered() {
         Scanner scanner = new Scanner(System.in);
         for (int attempt = 0; attempt < 3; attempt++) {
             System.out.println("Enter your PIN:");
             int enteredPIN = scanner.nextInt();
-            if (bankAccount.validatePIN(enteredPIN)) {
+            if (bankAccount.isPINValid(enteredPIN)) {
                 System.out.println("Correct Pin");
                 return true;
             } else {
@@ -80,7 +82,7 @@ public class ATM {
                 System.out.println("Transaction Successful. Take your card, Funds to follow.");
 
             } else {
-                System.out.println("Sorry, the ATM does not have enough cash.");
+                System.out.println("Sorry, the main.java.com.atm.project.ATM does not have enough cash.");
             }
         }
 

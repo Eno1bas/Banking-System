@@ -1,3 +1,5 @@
+package com.atm.project;
+
 import java.util.Objects;
 
 public class BankAccount {
@@ -11,21 +13,15 @@ public class BankAccount {
         return balance;
     }
 
-    public boolean validatePIN(int enteredPIN) {
+    public boolean isPINValid(int enteredPIN) {
         return Objects.equals(this.pinCode, enteredPIN);
     }
 
-    public void receiveFunds(float receivedAmount){
-       balance= balance+receivedAmount;
-    }
+
     public void withdrawFunds(float withdrawnAmount){
        balance = balance-withdrawnAmount;
     }
-    public void releaseFunds(float merchantAmount){
-        balance = balance-merchantAmount;
-    }
-    public void sendFunds(float recipientAmount)
-    {balance = balance-recipientAmount;}
+
 }
 
 

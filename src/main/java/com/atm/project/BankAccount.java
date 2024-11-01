@@ -22,6 +22,10 @@ public class BankAccount {
        balance = balance-withdrawnAmount;
     }
 
+    public void depositFunds(float depositAmount){
+        balance = balance+depositAmount;
+    }
+
 }
 
 

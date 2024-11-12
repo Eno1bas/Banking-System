@@ -1,25 +1,16 @@
 package com.atm.project;
 
 public class ATM_Dispensery {
-    private float availableCash = 60000f;
-
-
-
+    private float cashAvailable = 60000f;
 
     public boolean hasSufficientCash(float amount) {
-        return availableCash >= amount;
+        return cashAvailable >= amount;
     }
-
 
     public void dispenseCash(float amount) {
-        if (amount <= availableCash) {
-            availableCash -= amount; // Deduct the amount from the available cash
+        if (amount <= cashAvailable) {
+            cashAvailable -= amount; // Deduct the amount from the available cash
         }
-    }
-
-
-    public float getAvailableCash() {
-        return availableCash;
     }
 }
 

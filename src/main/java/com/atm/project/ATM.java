@@ -5,34 +5,10 @@ import java.util.Scanner;
 public class ATM {
     // Variables
     private BankAccount bankAccount;
-
     // Constructor
     public ATM(BankAccount bankAccount) {
         this.bankAccount = bankAccount;
     }
-    public static void main(String[] args) {
-        BankAccount account = new BankAccount();
-        ATM atm = new ATM(account);
-
-        if (atm.wasCorrectPINEntered()){
-            int selectedOption = atm.chooseOptions();
-            if (selectedOption == 1) {
-                atm.withdraw();
-            } else if (selectedOption == 2) {
-                atm.displayBalance();
-            } else {
-                System.out.println("Transaction Cancelled. Good bye.");
-            }
-        }else{
-            System.out.println("Account locked. Please try again in 24 hours.");}
-        CardReader eject = new CardReader();
-        eject.ejectCard();
-
-
-
-
-    }
-    // Methods
 
     public boolean wasCorrectPINEntered() {
         Scanner scanner = new Scanner(System.in);
@@ -50,11 +26,11 @@ public class ATM {
         return false;
     }
 
-    private void displayBalance() {
+    public void displayBalance() {
         System.out.println("Account balance: " + bankAccount.getBalance());
     }
 
-    private int chooseOptions() {
+    public int selectedOptions() {
         System.out.println("Please choose one of the following options");
         System.out.println("1. Withdraw");
         System.out.println("2. Check Balance");
@@ -63,34 +39,28 @@ public class ATM {
         return scanner.nextInt();
     }
 
-    private void withdraw(){
+    public void withdraw() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("how much do you wish to withdraw");
+        System.out.println("How much do you wish to withdraw?");
         float withdrawnAmount = scanner.nextFloat();
-        if (withdrawnAmount<=0){
-            System.out.println("Invalid amount; please enter a valid amount");
-            return;
-        } else if (withdrawnAmount> bankAccount.getBalance()){
-            System.out.println("Insufficient Funds, cannot withdraw more than your account balance");
-            }
-            else {//we have provided all information and all checks are passed, we can conclude user journey.
-            ATM_Dispensery atm_dispensery = new ATM_Dispensery();
-            if (atm_dispensery.hasSufficientCash(withdrawnAmount)) {
+        if (withdrawnAmount <= 0) {
+            System.out.println("Invalid amount; please enter a valid amount.");
+        } else if (withdrawnAmount > bankAccount.getBalance()) {
+            System.out.println("Insufficient Funds; cannot withdraw more than your account balance.");
+        } else {
+            ATM_Dispensery atmDispensery = new ATM_Dispensery();
+            if (atmDispensery.hasSufficientCash(withdrawnAmount)) {
                 bankAccount.withdrawFunds(withdrawnAmount);
-                atm_dispensery.dispenseCash(withdrawnAmount);
+                atmDispensery.dispenseCash(withdrawnAmount);
                 System.out.println("Dispensing £" + withdrawnAmount + "...");
-                System.out.println("Transaction Successful. Take your card, Funds to follow.");
-
+                System.out.println("Transaction Successful. Take your card, funds to follow.");
             } else {
-                System.out.println("Sorry, the main.java.com.atm.project.ATM does not have enough cash.");
+                System.out.println("Sorry, the ATM does not have enough cash.");
             }
         }
-
-
     }
+}
 
-
-        }
 
 
 

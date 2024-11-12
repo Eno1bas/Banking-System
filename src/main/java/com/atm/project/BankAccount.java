@@ -3,20 +3,16 @@ package com.atm.project;
 import java.util.Objects;
 
 public class BankAccount {
-    // Variables
     private float balance = 600000;
-    private int pinCode = 1234;
-
-
+    private int PINCode = 1234;
     // Methods
     public float getBalance() {
         return balance;
     }
 
     public boolean isPINValid(int enteredPIN) {
-        return Objects.equals(this.pinCode, enteredPIN);
+        return Objects.equals(this.PINCode, enteredPIN);
     }
-
 
     public void withdrawFunds(float withdrawnAmount){
        balance = balance-withdrawnAmount;
@@ -25,7 +21,6 @@ public class BankAccount {
     public void depositFunds(float depositAmount){
         balance = balance+depositAmount;
     }
-
 }
 
 

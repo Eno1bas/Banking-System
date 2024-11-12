@@ -30,15 +30,15 @@ public class BankAccountTests {
     // hint: AssertTrue
     @Test
     public void correctPINisAccepted(){
-        boolean expectedPIN = bankAccount.isPINValid(1234);
+        boolean isValid = bankAccount.isPINValid(1234);
 
-        assertTrue(expectedPIN);
+        assertTrue(isValid);
     }
 
     @Test
     public void wrongPINisNotAccepted(){
-        boolean expectedPIN =! bankAccount.isPINValid(2346);
+        boolean isValid = bankAccount.isPINValid(2346);
 
-        assertTrue(expectedPIN);
+        assertFalse(isValid);
     }
 }

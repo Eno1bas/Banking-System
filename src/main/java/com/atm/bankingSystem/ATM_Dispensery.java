@@ -1,4 +1,4 @@
-package com.atm.project;
+package com.atm.bankingSystem;
 
 public class ATM_Dispensery {
     private float cashAvailable = 60000f;

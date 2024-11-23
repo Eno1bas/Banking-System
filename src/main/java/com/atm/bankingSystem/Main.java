@@ -1,4 +1,4 @@
-package com.atm.project;
+package com.atm.bankingSystem;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package com.atm.project;
 
+import com.atm.bankingSystem.BankAccount;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

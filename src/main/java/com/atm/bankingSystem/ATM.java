@@ -30,7 +30,7 @@ public class ATM {
         System.out.println("Account balance: " + bankAccount.getBalance());
     }
 
-    public int selectedOptions() {
+    public int selectAnOptions() {
         System.out.println("Please choose one of the following options");
         System.out.println("1. Withdraw");
         System.out.println("2. Check Balance");
@@ -48,10 +48,10 @@ public class ATM {
         } else if (withdrawnAmount > bankAccount.getBalance()) {
             System.out.println("Insufficient Funds; cannot withdraw more than your account balance.");
         } else {
-            ATM_Dispensery atmDispensery = new ATM_Dispensery();
-            if (atmDispensery.hasSufficientCash(withdrawnAmount)) {
+            ATMDispensary atmDispensary = new ATMDispensary();
+            if (atmDispensary.hasSufficientCash(withdrawnAmount)) {
                 bankAccount.withdrawFunds(withdrawnAmount);
-                atmDispensery.dispenseCash(withdrawnAmount);
+                atmDispensary.dispenseCash(withdrawnAmount);
                 System.out.println("Dispensing £" + withdrawnAmount + "...");
                 System.out.println("Transaction Successful. Take your card, funds to follow.");
             } else {
@@ -96,39 +96,3 @@ public class ATM {
 
 
 
-
-//import java.util.Scanner;
-
-
-//public class Customer {
-    //private Server server;
-
-    //public Customer(Server server) {
-       // this.server = server;
-   // }
-
-   // public void handlePinInput() {
-       // Scanner scan = new Scanner(System.in);
-       // for (int attempts = 0; attempts < 3; attempts++) {
-        //    System.out.println("Enter your PIN:");
-        //    int pin = scan.nextInt();
-        //    if (server.isPINValid(pin)) {
-         //       displayAccountBalance();
-          //      return;
-          //  } else {
-          //      System.out.println("invalid PIN");
-         //   }
-       // }
-       // System.out.println("Please try again in 24 hours");
-    //}
-
-   // public static void main(String[] args) {
-     //   Server bank = new Server();
-     //   Customer pinHandler = new Customer(bank);
-     //   pinHandler.handlePinInput();
-   // }
-
-   // private void displayAccountBalance() {
-       // System.out.println("Account balance: " + server.getBalance());
-   // }
-//}

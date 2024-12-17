@@ -1,6 +1,6 @@
 package com.atm.bankingSystem;
 
-public class ATM_Dispensery {
+public class ATMDispensary {
     private float cashAvailable = 60000f;
 
     public boolean hasSufficientCash(float amount) {

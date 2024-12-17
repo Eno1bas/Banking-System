@@ -6,7 +6,7 @@ public class Main {
         ATM atm = new ATM(account);
 
         if (atm.wasCorrectPINEntered()) {
-            int selectedOption = atm.selectedOptions();
+            int selectedOption = atm.selectAnOptions();
             switch (selectedOption) {
                 case 1:
                     atm.withdraw();

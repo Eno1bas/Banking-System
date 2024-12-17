@@ -13,7 +13,7 @@ class ATMTests {
     @Test
     public void withdrawoptionswork(){
        int expectedOption = 1;
-        int actualOption = atm.selectedOptions();
+        int actualOption = atm.selectAnOptions();
         assertEquals(expectedOption, actualOption, "how much do you want to withdraw");
     }
     @Test
@@ -21,7 +21,7 @@ class ATMTests {
         //given
         int expectedOption = 2;
         //when
-        int actualOption = atm.selectedOptions();
+        int actualOption = atm.selectAnOptions();
         //then
         assertEquals(expectedOption, actualOption);
     }

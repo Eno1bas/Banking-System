@@ -9,7 +9,7 @@ public class ATMDispensary {
 
     public void dispenseCash(float amount) {
         if (amount <= cashAvailable) {
-            cashAvailable -= amount; // Deduct the amount from the available cash
+            cashAvailable -= amount;
         }
     }
 }

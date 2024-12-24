@@ -5,7 +5,7 @@ import java.util.Objects;
 public class BankAccount {
     private float balance = 600000;
     private int PINCode = 1234;
-    // Methods
+
     public float getBalance() {
         return balance;
     }

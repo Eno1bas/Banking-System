@@ -13,7 +13,7 @@ class ATMTests {
     @Test
     public void withdrawoptionswork(){
        int expectedOption = 1;
-        int actualOption = atm.selectAnOptions();
+        int actualOption = atm.selectAnOption();
         assertEquals(expectedOption, actualOption, "how much do you want to withdraw");
     }
     @Test
@@ -21,18 +21,15 @@ class ATMTests {
         //given
         int expectedOption = 2;
         //when
-        int actualOption = atm.selectAnOptions();
+        int actualOption = atm.selectAnOption();
         //then
         assertEquals(expectedOption, actualOption);
     }
 
     @Test
     public void workswhencorrectPINEntered(){
-        //given
         int expectedPIN = 1234;
-        //when
         boolean actualPIN = true;
-        //then
         assertTrue(actualPIN);
     }
 }

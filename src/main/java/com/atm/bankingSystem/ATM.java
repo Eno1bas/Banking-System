@@ -3,9 +3,9 @@ package com.atm.bankingSystem;
 import java.util.Scanner;
 
 public class ATM {
-    // Variables
+
     private BankAccount bankAccount;
-    // Constructor
+
     public ATM(BankAccount bankAccount) {
         this.bankAccount = bankAccount;
     }
@@ -30,7 +30,7 @@ public class ATM {
         System.out.println("Account balance: " + bankAccount.getBalance());
     }
 
-    public int selectAnOptions() {
+    public int selectAnOption() {
         System.out.println("Please choose one of the following options");
         System.out.println("1. Withdraw");
         System.out.println("2. Check Balance");

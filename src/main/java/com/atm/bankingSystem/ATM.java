@@ -39,6 +39,33 @@ public class ATM {
         return scanner.nextInt();
     }
 
+    public void startATM() {
+        while (true) {
+            if (wasCorrectPINEntered()) {
+                boolean exit = false;
+                while (!exit) {
+                    int selectedOption = selectAnOption();
+                    switch (selectedOption) {
+                        case 1:
+                            withdraw();
+                            break;
+                        case 2:
+                            displayBalance();
+                            break;
+                        case 3:
+                            System.out.println("Transaction Cancelled. Goodbye.");
+                            exit = true;
+                            break;
+                        default:
+                            System.out.println("Invalid selection. Please try again.");
+                    }
+                }
+            } else {
+                break;
+            }
+        }
+    }
+
     public void withdraw() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("How much do you wish to withdraw?");
